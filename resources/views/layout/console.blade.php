@@ -19,7 +19,7 @@
             <h1 class="w3-text-red">Portfolio Console</h1>
 
             @if (Auth::check())
-                You are logged in as {{auth()->user()->first}} {{auth()->user()->last}} |
+                You are logged in as {{auth()->user()->first}} {{auth()->user()->last}} 
                 <a href="/console/logout">Log Out</a> | 
                 <a href="/console/dashboard">Dashboard</a> | 
                 <a href="/">Website Home Page</a>
