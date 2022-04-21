@@ -120,6 +120,55 @@ Route::get('/descriptions', function(){
 
 });
 
+Route::get('/education', function(){
+
+    $education = Education::orderBy('id')->get();
+    return $education;
+
+});
+
+Route::get('/skills', function(){
+
+    $skills = Skill::orderBy('id')->get();
+
+    foreach($skills as $key => $skill)
+    {
+
+        if($skill['photo'])
+        {
+            $skill[$key]['photo'] = env('APP_URL').'storage/'.$skill['photo'];
+        }
+    }
+
+    return $skills;
+
+});
+
+Route::get('/contacts', function(){
+
+    $contacts = Contact::orderBy('id')->get();
+    return $contacts;
+
+});
+
+
+Route::get('/descriptions', function(){
+
+    $descriptions = Description::orderBy('id')->get();
+
+    foreach($descriptions as $key => $description)
+    {
+
+        if($description['photo'])
+        {
+            $description[$key]['photo'] = env('APP_URL').'storage/'.$description['photo'];
+        }
+    }
+
+    return $descriptions;
+
+});
+
 Route::get('/background', function(){
 
     $background = Background::orderBy('id')->get();
