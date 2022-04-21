@@ -10,6 +10,7 @@ use App\Models\Skill;
 use App\Models\Contact;
 use App\Models\Description;
 use App\Models\Background;
+use App\Models\Picture;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -30,6 +31,7 @@ class DatabaseSeeder extends Seeder
         Contact::truncate();
         Description::truncate();
         Background::truncate();
+        Picture::truncate();
         
         User::factory()->count(2)->create();
         Type::factory()->count(3)->create();
@@ -39,6 +41,7 @@ class DatabaseSeeder extends Seeder
         Contact::factory()->count(4)->create();
         Description::factory()->count(4)->create();
         Background::factory()->count(4)->create();
+        Picture::factory()->count(4)->create();
             
     }
 }

@@ -2,9 +2,7 @@
   "ExpandedNodes": [
     "",
     "\\app",
-    "\\app\\Models",
-    "\\database\\seeders"
+    "\\app\\Models"
   ],
-  "SelectedNode": "\\app\\Models\\Contact.php",
   "PreviewInSolutionExplorer": false
 }

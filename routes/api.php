@@ -11,6 +11,8 @@ use App\Models\Skill;
 use App\Models\Contact;
 use App\Models\Description;
 use App\Models\Background;
+use App\Models\Picture;
+
 
 
 /*
@@ -124,4 +126,22 @@ Route::get('/background', function(){
     return $background;
 
 });
+
+Route::get('/pictures', function(){
+
+    $pictures = Pictures::orderBy('id')->get();
+
+    foreach($pictures as $key => $picture)
+    {
+
+        if($picture['photo'])
+        {
+            $picture[$key]['photo'] = env('APP_URL').'storage/'.$picture['photo'];
+        }
+    }
+
+    return $pictures;
+
+});
+
 

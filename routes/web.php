@@ -10,6 +10,7 @@ use App\Http\Controllers\EducationController;
 use App\Http\Controllers\SkillsController;
 use App\Http\Controllers\DescriptionsController;
 use App\Http\Controllers\BackgroundController;
+use App\Http\Controllers\PicturesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -107,3 +108,13 @@ Route::post('/console/background/add', [BackgroundController::class, 'add'])->mi
 Route::get('/console/background/edit/{background:id}', [BackgroundController::class, 'editForm'])->where('background', '[0-9]+')->middleware('auth');
 Route::post('/console/background/edit/{background:id}', [BackgroundController::class, 'edit'])->where('background', '[0-9]+')->middleware('auth');
 Route::get('/console/background/delete/{background:id}', [BackgroundController::class, 'delete'])->where('background', '[0-9]+')->middleware('auth');
+
+
+Route::get('/console/pictures/list', [PicturesController::class, 'list'])->middleware('auth');
+Route::get('/console/pictures/add', [PicturesController::class, 'addForm'])->middleware('auth');
+Route::post('/console/pictures/add', [PicturesController::class, 'add'])->middleware('auth');
+Route::get('/console/pictures/edit/{picture:id}', [PicturesController::class, 'editForm'])->where('picture', '[0-9]+')->middleware('auth');
+Route::post('/console/pictures/edit/{picture:id}', [PicturesController::class, 'edit'])->where('picture', '[0-9]+')->middleware('auth');
+Route::get('/console/pictures/delete/{picture:id}', [PicturesController::class, 'delete'])->where('picture', '[0-9]+')->middleware('auth');
+Route::get('/console/pictures/image/{picture:id}', [PicturesController::class, 'imageForm'])->where('picture', '[0-9]+')->middleware('auth');
+Route::post('/console/pictures/image/{picture:id}', [PicturesController::class, 'image'])->where('picture', '[0-9]+')->middleware('auth');
