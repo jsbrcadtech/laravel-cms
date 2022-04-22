@@ -178,7 +178,7 @@ Route::get('/background', function(){
 
 Route::get('/pictures', function(){
 
-    $pictures = Pictures::orderBy('id')->get();
+    $pictures = Picture::orderBy('id')->get();
 
     foreach($pictures as $key => $picture)
     {
