@@ -10,7 +10,6 @@
         <tr class="w3-red">
             <th></th>
             <th>Title</th>
-            <th>Slug</th>
             <th>Url</th>
             <th>Type</th>
             <th>Created</th>
@@ -26,11 +25,6 @@
                     @endif
                 </td>
                 <td>{{$project->title}}</td>
-                <td>
-                    <a href="/project/{{$project->slug}}">
-                        {{$project->slug}}
-                    </a>
-                </td>
                 <td>{{$project->url}}</td>
                 <td>{{$project->type->title}}</td>
                 <td>{{$project->created_at->format('M j, Y')}}</td>

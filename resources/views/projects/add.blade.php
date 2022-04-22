@@ -31,16 +31,6 @@
         </div>
 
         <div class="w3-margin-bottom">
-            <label for="slug">Slug:</label>
-            <input type="text" name="slug" id="slug" value="{{old('slug')}}" required>
-
-            @if ($errors->first('slug'))
-                <br>
-                <span class="w3-text-red">{{$errors->first('slug')}}</span>
-            @endif
-        </div>
-
-        <div class="w3-margin-bottom">
             <label for="content">Content:</label>
             <textarea name="content" id="content" required>{{old('content')}}</textarea>
 

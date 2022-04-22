@@ -17,7 +17,6 @@ class Project extends Model
         'title',
         'url',
         'content',
-        'slug',
         'image',
         'type_id',
         'user_id',
