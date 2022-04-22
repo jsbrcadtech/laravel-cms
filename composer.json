@@ -6,12 +6,14 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "dompdf/dompdf": "^1.2",
         "fruitcake/laravel-cors": "^3.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.15",
         "laravel/tinker": "^2.7",
-        "nesbot/carbon": "^2.57"
+        "nesbot/carbon": "^2.57",
+        "smottt/wideimage": "^1.1"
     },
     "require-dev": {
         "facade/ignition": "^2.17",
