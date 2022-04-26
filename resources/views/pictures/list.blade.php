@@ -19,7 +19,7 @@
             <tr>
                 <td>
                     @if ($pictureData->image)
-                            <img src="{{asset('storage/'.$pictureData->image)}}" width="200">
+                            <img src="{{$pictureData->image}}" width="200">
                     @endif
                 </td>
                 <td>{{$pictureData->name}}</td>

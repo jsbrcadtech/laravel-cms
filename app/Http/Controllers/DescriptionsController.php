@@ -63,14 +63,6 @@ class DescriptionsController extends Controller
             ->with('message', 'Description has been edited!');
     }
 
-    public function delete(Description $description)
-    {
-        $description->delete();
-        
-        return redirect('/console/descriptions/list')
-            ->with('message', 'Description has been deleted!');        
-    }
-
     public function imageForm(Description $description)
     {
         return view('descriptions.image', [
@@ -82,18 +74,22 @@ class DescriptionsController extends Controller
     {
 
         $attributes = request()->validate([
-            'image' => 'required|image',
+            'image' => 'required',
         ]);
 
-        Storage::delete($description->image);
-        
-        $path = request()->file('image')->store('descriptions');
-
-        $description->image = $path;
+        $description->image = $attributes['image'];
         $description->save();
         
         return redirect('/console/descriptions/list')
             ->with('message', 'Description image has been edited!');
+    }
+
+    public function delete(Description $description)
+    {
+        $description->delete();
+        
+        return redirect('/console/descriptions/list')
+            ->with('message', 'Description has been deleted!');        
     }
 
 

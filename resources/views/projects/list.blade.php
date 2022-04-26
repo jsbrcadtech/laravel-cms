@@ -21,7 +21,7 @@
             <tr>
                 <td>
                     @if ($project->image)
-                        <img src="{{asset('storage/'.$project->image)}}" width="200">
+                        <img src="{{$project->image}}" width="200">
                     @endif
                 </td>
                 <td>{{$project->title}}</td>

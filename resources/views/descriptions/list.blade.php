@@ -19,7 +19,7 @@
             <tr>
                 <td>
                     @if ($description->image)
-                        <img src="{{asset('storage/'.$description->image)}}" width="200">
+                        <img src="{{$description->image}}" width="200">
                     @endif
                 </td>
                 <td>{{$description->title}}</td>

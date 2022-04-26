@@ -76,14 +76,6 @@ class ProjectsController extends Controller
             ->with('message', 'Project has been edited!');
     }
 
-    public function delete(Project $project)
-    {
-        $project->delete();
-        
-        return redirect('/console/projects/list')
-            ->with('message', 'Project has been deleted!');        
-    }
-
     public function imageForm(Project $project)
     {
         return view('projects.image', [
@@ -95,18 +87,23 @@ class ProjectsController extends Controller
     {
 
         $attributes = request()->validate([
-            'image' => 'required|image',
+            'image' => 'required',
         ]);
 
-        Storage::delete($project->image);
-        
-        $path = request()->file('image')->store('projects');
 
-        $project->image = $path;
+        $project->image = $attributes['image'];
         $project->save();
         
         return redirect('/console/projects/list')
             ->with('message', 'Project image has been edited!');
+    }
+
+    public function delete(Project $project)
+    {
+        $project->delete();
+        
+        return redirect('/console/projects/list')
+            ->with('message', 'Project has been deleted!');        
     }
     
 }

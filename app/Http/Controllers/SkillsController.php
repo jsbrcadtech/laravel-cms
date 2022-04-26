@@ -67,14 +67,6 @@ class SkillsController extends Controller
             ->with('message', 'Skill has been edited!');
     }
 
-    public function delete(Skill $skill)
-    {
-        $skill->delete();
-        
-        return redirect('/console/skills/list')
-            ->with('message', 'Skill has been deleted!');        
-    }
-
     public function imageForm(Skill $skill)
     {
         return view('skills.image', [
@@ -86,18 +78,22 @@ class SkillsController extends Controller
     {
 
         $attributes = request()->validate([
-            'image' => 'required|image',
+            'image' => 'required',
         ]);
 
-        Storage::delete($skill->image);
-        
-        $path = request()->file('image')->store('skills');
-
-        $skill->image = $path;
+        $skill->image = $attributes['image'];
         $skill->save();
         
         return redirect('/console/skills/list')
             ->with('message', 'Skill image has been edited!');
+    }
+    
+    public function delete(Skill $skill)
+    {
+        $skill->delete();
+        
+        return redirect('/console/skills/list')
+            ->with('message', 'Skill has been deleted!');        
     }
 
 

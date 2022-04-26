@@ -62,13 +62,7 @@ class PicturesController extends Controller
             ->with('message', 'Picture has been edited!');
     }
 
-    public function delete(Picture $picture)
-    {
-        $picture->delete();
-        
-        return redirect('/console/pictures/list')
-            ->with('message', 'Picture has been deleted!');        
-    }
+
 
     public function imageForm(Picture $picture)
     {
@@ -81,19 +75,26 @@ class PicturesController extends Controller
     {
 
         $attributes = request()->validate([
-            'image' => 'required|image',
+            'image' => 'required',
+
         ]);
-
-        Storage::delete($picture->image);
         
-        $path = request()->file('image')->store('pictures');
-
-        $picture->image = $path;
+        $picture->image = $attributes['image'];
         $picture->save();
-        
+
         return redirect('/console/pictures/list')
-            ->with('message', 'Picture image has been edited!');
+        ->with('message', 'Picture image has been edited!');
+    
     }
 
-}
+    public function delete(Picture $picture)
+    {
+        $picture->delete();
+        
+        return redirect('/console/pictures/list')
+            ->with('message', 'Picture has been deleted!');        
+    }
+        
+    }
+
    

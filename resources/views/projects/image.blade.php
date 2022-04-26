@@ -8,17 +8,17 @@
 
     <div class="w3-margin-bottom">
         @if($project->image)
-            <img src="{{asset('storage/'.$project->image)}}" width="200">
+            <img src="{{$project->image}}" width="200">
         @endif
     </div>
 
-    <form method="post" action="/console/projects/image/{{$project->id}}" novalidate class="w3-margin-bottom" enctype="multipart/form-data">
+    <form method="post" action="/console/projects/image/{{$project->id}}" novalidate class="w3-margin-bottom">
 
         @csrf
 
         <div class="w3-margin-bottom">
-            <label for="image">Image:</label>
-            <input type="file" name="image" id="image" value="{{old('image')}}" required>
+            <label for="image">Image URL:</label>
+            <input type="url" name="image" id="image" value="{{old('image')}}" required>
             
             @if ($errors->first('image'))
                 <br>

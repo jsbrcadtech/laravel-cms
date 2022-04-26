@@ -4,7 +4,7 @@
 
 <section class="w3-padding">
 
-    <h2>Add Picture</h2>
+    <h2>Add Picture Details</h2>
 
     <form method="post" action="/console/pictures/add" novalidate class="w3-margin-bottom">
 
